@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 
 import { CssBaseline } from '@mui/material';
-import {SnackbarProvider} from 'notistack';
+import { SnackbarProvider } from 'notistack';
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -16,10 +16,9 @@ import Footer from './components/footer.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <SnackbarProvider>
-      <CssBaseline/>
+      <CssBaseline />
       <App />
-      <Footer/>
-
+      <Footer />
     </SnackbarProvider>
   </React.StrictMode>,
-)
+);
