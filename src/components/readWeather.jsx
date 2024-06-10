@@ -20,7 +20,7 @@ function ReadWeather({weather}){
             {weather.condictionText}
             </Typography>
         </Box>
-        );
+        );     
 }
 
 export default ReadWeather;

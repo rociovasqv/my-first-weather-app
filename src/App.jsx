@@ -11,7 +11,7 @@ export default function App(){
   const [weather, setWeather] = useState({
     city: "",
     country: "",
-    temperature: 0,
+    temperature: "",
     condition: "",
     conditionText: "",
     icon: "",
@@ -26,19 +26,23 @@ export default function App(){
     setError({error: false, message: "",});
     try{
       if(!city.trim()) throw { message: "El campo ciudad es obligatorio"};
-      const response = await fetch(`${API}${city}`);
+      const response = await fetch(API + city);
       const data = await response.json();
 
-      if (data.error) throw {message: data.error.message};
+      if (data.error) 
+        throw {message: "No se enecuentra la ciudad"};
 
-      setWeather({
+      const dataWeather = {
         city: data.location.name,
         country: data.location.country,
         temperature: data.current.temp_c,
         condition: data.current.condition.code,
         conditionText: data.current.condition.text,
         icon: data.current.condition.icon,
-      });
+      };
+
+      setWeather(dataWeather);
+      // await saveSearchWeather(dataWeather);
 
     }
     catch(error){
