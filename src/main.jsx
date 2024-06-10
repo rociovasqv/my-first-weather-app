@@ -11,12 +11,14 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import './index.css';
 
+import Footer from './components/footer.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <SnackbarProvider>
       <CssBaseline/>
       <App />
+      <Footer/>
 
     </SnackbarProvider>
   </React.StrictMode>,
