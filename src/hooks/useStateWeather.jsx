@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const API = `http://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_API_KEY}&lang=es&q=`;
+// const VITE_API_KEY = "0624b93ab1284263811134027241006";
 
 const HooksWeather = () =>
     {
