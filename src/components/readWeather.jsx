@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-
+import PropTypes from "prop-types"; 
 function ReadWeather({ weather }) {
   return (
     <Box
@@ -29,5 +29,15 @@ function ReadWeather({ weather }) {
     </Box>
   );
 }
+
+ReadWeather.propTypes = {
+  weather: PropTypes.shape({
+    city: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
+    conditionText: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    temperature: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default ReadWeather;
