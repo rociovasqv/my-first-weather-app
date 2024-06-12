@@ -1,25 +1,23 @@
 import express from "express";
 import mongoose from "mongoose";
-import { router } from "express";
-import { dbconnect } from "./configs/database";
+import  router  from "express";
+import dbconnect from "./database.js"; // La ruta debe ser relativa al archivo server.js
 
+const app = express();
+const PORT = 5931;
+app.use(express.json());
 
-const server = express();
-
-server.use(express.json());
-
-server.listen(5001, () => {
-    console.log("Server en vivo por el puerto: ", 5001);
-  });
+app.listen(PORT, () => {
+    console.log("App en vivo por el puerto: ", PORT);
+});
 
 const connection = mongoose.connection;
 connection.once('open', () => {
-  console.log("Conexión establecida a la base de datos MongoDB correctamente");
+    console.log("Conexión establecida a la base de datos MongoDB correctamente");
 });
 
-server.use(router);
+app.use(router);
 
 dbconnect();
 
-export default server;
-
+export default app;

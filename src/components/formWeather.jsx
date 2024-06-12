@@ -15,7 +15,7 @@ function FormWeather ({ city, setCity, loading, error, Submitweather }){
             sx={{ display: "grid", gap: 2 }}
             component="form"
             autoComplete="off"
-            onSubmit={onsubmit}
+            onSubmit={Submitweather}
           >
             <TextField
               id="city"

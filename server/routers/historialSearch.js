@@ -4,20 +4,26 @@ import weatherModel from '../models/weatherModel';
 
 //CREATE - POST - Crear y guardar búsqueda de historial
 
-router.post("/", async (req,res) => {
-    const { city } = req.body;
+router.post("/agregar", async (req,res) => {
+    const { city, country, temperature, condition, conditionText, icon } = req.body;
+    console.log(req.body)
     try {
-        let newSearch = await weatherModel.create(city);
-        res.status(200);
-        res.send(newSearch);
+        let newSearch = await weatherModel.create({
+            city,
+            country,
+            temperature,
+            condition,
+            conditionText,
+            icon
+        });
+        res.status(200).send(newSearch);
     }
     catch(error){
         res.status(500).json({
             message: error.message
-          });
+        });
     }
 });
-
 // READ - GET - Obtener historial
 
 //Get all last historials
@@ -34,7 +40,7 @@ router.get("/",async (req,res) =>{
    
 });
 
-export default {router};
+export default router;
 
     //Get only one historial
 // router.get("/:id",async (req,res) =>{
