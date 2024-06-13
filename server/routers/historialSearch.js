@@ -1,6 +1,8 @@
 
-import { router } from 'express';
-import weatherModel from '../models/weatherModel';
+import  express  from 'express';
+import weatherModel from '../models/weatherModel.js';
+
+const router = express.Router()
 
 //CREATE - POST - Crear y guardar búsqueda de historial
 

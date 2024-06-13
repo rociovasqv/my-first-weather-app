@@ -41,6 +41,24 @@ const HooksWeather = () =>
             icon: data.current.condition.icon
         };
           setWeather(dataWeather);
+
+          const options = {
+            method: 'POST', // Método HTTP
+            headers: {
+                'Content-Type': 'application/json' // Tipo de contenido
+            },
+            body: JSON.stringify(dataWeather) // Cuerpo de la solicitud en formato JSON
+        };
+        
+        fetch('http://localhost:5931/agregar', options)
+        .then(response => response.json()) // Parsear la respuesta JSON
+        .then(data => {
+            console.log('Success:', data); // Manejar la respuesta
+        })
+        .catch((error) => {
+            console.error('Error:', error); // Manejar cualquier error
+        });
+
           //                                          await saveSearchWeather(dataWeather);
         }
         catch(error){
